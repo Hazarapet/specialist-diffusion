@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="We demonstrate a plug-and-play method which outperforms the latest few-shot personalization alternatives of diffusion models.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Specialist Diffusion: Plug-and-Play Sample-Efficient Fine-Tuning of
+    Text-to-Image Diffusion Models to Learn Any Unseen Style</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <script>
+    history.scrollRestoration = 'manual';
+  </script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Specialist Diffusion: Plug-and-Play Sample-Efficient Fine-Tuning of
+            Text-to-Image Diffusion Models to Learn Any Unseen Style</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/alonewithyou" target="_blank">Haoming Lu</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://hazarapet.github.io" target="_blank">Hazarapet Tunanyan</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              Kai Wang<sup>2</sup>,
+            </span>
+            <br/>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/shant-navasardyan-1302aa149/" target="_blank">Shant Navasardyan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.ece.utexas.edu/people/faculty/atlas-wang" target="_blank">Zhangyang Wang</a><sup>1,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.humphreyshi.com/" target="_blank">Humphrey Shi</a><sup>1,2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Picsart AI Research (PAIR),</span>
+            <span class="author-block"><sup>2</sup>U of Oregon,</span>
+            <span class="author-block"><sup>3</sup>UT Austin</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Picsart-AI-Research/Specialist-Diffusion"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Intro -->
+<section class="hero intro">
+  <div class="container is-max-desktop">
+    <div class="hero-body center">
+      <p>
+        We present <strong>Specialist Diffusion</strong>, a style specific personalized text-to-image model.
+        It is plug-and-play to existing diffusion models and other personalization techniques. 
+        It outperform the latest few-shot personalization alternatives of diffusion models such as 
+        <strong>Textual Inversion</strong> and <strong>DreamBooth</strong>, in terms of learning highly sophisticated 
+        styles with ultra-sample-efficient tuning.
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Intro -->
+
+
+<!-- Main Figure -->
+<section class="hero figure main-figure">
+  <div class="container is-max-desktop">
+    <div class="hero-body center">
+      <img src="./static/images/main.png" style="width: 100%"/>
+      <p>
+        Samples generated by our models fine-tuned on the three datasets. 
+        The left column shows the dataset on which the model is trained on, and the top row shows the text prompt used to generate the image.
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Main Figure -->
+
+<!-- Comparison -->
+<section class="hero figure is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="hero-body center">
+      <img src="./static/images/teaser.png" style="width: 100%; padding: 4rem;background: white;"/>
+      <p>
+        Comparison of fine-tuning the Stable Diffusion model. Three rows represent three different, rare styles 
+        models personalization, using only a handful of samples (<strong>even less than 10</strong>). 
+        All examples are generated using the same text prompt. Object specific <strong>DreamBooth</strong> performs poorly when being applied to capturing styles. 
+        <strong>Textual Inversion</strong> achieves neat performance on some styles, but fails on more unusual styles such as <strong>“Flat design”</strong>. 
+        <strong>Specialist Diffusion</strong> (rightmost) succeeds to capture those highly unusual, specialized, and sophisticated styles via few-shot tuning
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Comparison -->
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion models have demonstrated impressive capability of text-conditioned image synthesis, and broader application horizons are 
+            emerging by <strong>personalizing</strong> those pretrained diffusion models toward generating some specialized target object or style. 
+            In this paper, we aim to learn an unseen style by simply fine-tuning a pre-trained diffusion model with a handful of images (e.g., less than 10),
+            so that the fine-tuned model can generate high-quality images of arbitrary objects in this style. Such extremely lowshot fine-tuning 
+            is accomplished by a novel toolkit of finetuning techniques, including text-to-image customized data
+            augmentations, a content loss to facilitate content-style disentanglement, and sparse updating that focuses on only a
+            few time steps.
+            Our framework, dubbed <strong>Specialist Diffusion</strong>, is <strong>plug-and-play</strong> to existing diffusion model backbones and other personalization techniques. 
+            We demonstrate it to outperform the latest few-shot personalization alternatives of diffusion models such as 
+            <strong>Textual Inversion</strong> and <strong>DreamBooth</strong>, in terms of learning highly sophisticated styles with ultra-sample-efficient tuning. 
+            We further show that <strong>Specialist Diffusion</strong> can be integrated on top of <strong>Textual Inversion</strong> 
+            to boost performance further, even on highly unusual styles.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<!--/ Abstract -->
+
+<!-- Augmentation -->
+<section class="hero figure is-light is-small augmentation">
+  <div class="container center is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Method</h2>
+      <p>
+        Our framework carries a novel toolkit of fine-tuning techniques, including text-to-image <strong><u>(1) Advanced Data Augmentations</u></strong>, 
+        a <strong><u>(2) Content Loss</u></strong> to facilitate content-style disentanglement, and <strong><u>(3) Sparsely Updating</u></strong> time steps.
+      </p>
+      <br/>
+      <h3 class="title is-4">Advanced Augmentation</h3>
+      <h4 class="title is-5" style="width: 65%;float: left;">Illustration</h4>
+      <h4 class="title is-5" style="width: 35%;float: left;">Examples</h4>
+      <div style="display: inline-block;">
+        <img src="./static/images/augmentation.png" style="width: 65%; padding: 1.5rem 0 1.5rem 1.5rem;background: white;float: left;"/>
+        <img src="./static/images/augmentation2.png" style="width: 35%; padding: 1.5rem 1.5rem 1.5rem 1.3rem;background: white;"/>
+      </div>
+      
+      <p>
+        Overview of our customized data augmentation flow consisting <strong><u>Image Augmentation</u></strong> 
+        and three level of <strong><u>Caption Augmentation</u></strong>: <i>1) Caption Retrieval Augmentation</i>, 
+        <i>2) Synonym Augmentation</i>, and <i>3) Doubled Augmentation</i>.
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Augmentation -->
+
+<!-- Content Loss -->
+<section class="hero">
+  <div class="container center is-max-desktop">
+    <div class="hero-body">
+      <h3 class="title is-4">Content loss</h3>
+      <p>
+        Additional content loss is introduced to disentangle the knowledge of content (inherited from pretrained model) 
+        and style (learned from few-shot examples), and <strong>help preserve the model's ability to understand the semantics of the prompts</strong>.
+      </p>
+
+      <p style="text-align: center;margin: 2rem;font-size: 1.2rem;">
+        <span class="math">\(arg\,min_{w\in w^{+}} D_{CLIP}(G(w), t) + R\)</span>
+      </p>
+
+      <p>
+        Where <span>\(G\)</span> is an image generation network with <span>\(w\)</span> parameters, <span>\(t\)</span> denotes to the text prompt,
+        <span>\(D_{CLIP}\)</span> is the cosine distance between CLIP embeddings
+        of images and prompts, and <span>\(R\)</span> denotes other regularization terms.
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Content Loss -->
+
+<!-- Results -->
+<section class="hero figure is-light is-small">
+  <div class="container center is-max-desktop">
+    <div class="hero-body">
+      <h3 class="title is-3">Results</h3>
+      <div style="display: inline-block;">
+        <img src="./static/images/cat.png" style="width: 50%;float: left;"/>
+        <img src="./static/images/bird.png" style="width: 50%;"/>
+      </div>
+      <p>
+        Continued comparison of <strong>our model</strong> and other <strong>SOTA</strong> methods. Random seed is fixed for generation in this figure.
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Results -->
+
+<!-- Plug-and-Play -->
+<section class="hero">
+  <div class="container center is-max-desktop">
+    <div class="hero-body">
+      <h3 class="title is-3">Plug-and-Play</h3>
+      <img src="./static/images/plug-and-play.png" style="width: 100%;"/>
+      <p>
+        Combination of <strong>our model</strong> and <strong>Textual Inversion</strong>. 
+        Text prompts used for generation are listed top, styles of the respective
+        datasets are listed under, and the methods for training the models are listed left.
+        By integrating <strong>Textual Inversion</strong> with <strong>our model</strong>, 
+        the results capture even richer details without losing the style.
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Plug-and-Play -->
+
+<!-- Ablation Study -->
+<section class="hero figure is-light is-small">
+  <div class="container center is-max-desktop">
+    <div class="hero-body">
+      <h3 class="title is-3">Ablation Study</h3>
+      <img src="./static/images/ablation.png" style="width: 100%;padding:0.5rem 1rem 0 0; background: white;"/>
+      <p>
+        Ablation study of the method. Text prompts for each group:  (1)<i>“a young brown woman walking her dog in a park at night with a full moon”</i>; 
+        (2) <i>“a castle beside a lake”</i>. Methods for each group: 
+        <strong>(a) Stable Diffusion</strong>; 
+        (b) fined-tuned model by our <strong>full method</strong>; 
+        (c) our method <strong>w/o caption-retrieval augmentation</strong>; 
+        (d) our method <strong>w/o synonym and caption retrieval augmentations</strong>; 
+        (e) our method <strong>w/o content loss</strong>; 
+        (f) our method <strong>w/o sparse updating</strong>
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ Ablation Study -->
+
+<!-- User Study -->
+<section class="hero">
+  <div class="container center is-max-desktop">
+    <div class="hero-body">
+      <h3 class="title is-3">User Study</h3>
+      <img src="./static/images/user-study.png" style="width: 90%"/>
+      <p>
+        User study with the question: <i>“which one of the three generated images aligns best with the reference image in style?”</i>
+      </p>
+    </div>
+  </div>
+</section>
+<!--/ User Study -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <p>If you find our work useful, please cite our paper:</p>
+    <pre>
+      <code>@article{Specialist-Diffusion,
+        author    = {Lu, Haoming and Tunanyan, Hazarapet and Wang, Kai and Navasardyan, Shant and Wang, Zhangyang and Shi, Humprey},
+        title     = {Specialist Diffusion: Plug-and-Play Sample-Efficient Fine-Tuning of Text-to-Image Diffusion Models to Learn Any Unseen Style},
+        journal   = {CVPR},
+        year      = {2023},
+      }</code>
+    </pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
