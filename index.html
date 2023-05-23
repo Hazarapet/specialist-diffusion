@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
@@ -22,6 +23,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
 
   <script>
     history.scrollRestoration = 'manual';
@@ -67,7 +70,18 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
+              <!-- PDF Link. -->
               <span class="link-block">
+                <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Lu_Specialist_Diffusion_Plug-and-Play_Sample-Efficient_Fine-Tuning_of_Text-to-Image_Diffusion_Models_To_CVPR_2023_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <!-- <span class="link-block">
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark" target="_blank">
                   <span class="icon">
@@ -75,7 +89,8 @@
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span>
+              </span> -->
+              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/Picsart-AI-Research/Specialist-Diffusion"
                    class="external-link button is-normal is-rounded is-dark" target="_blank">
@@ -280,7 +295,7 @@
   <div class="container center is-max-desktop">
     <div class="hero-body">
       <h3 class="title is-3">User Study</h3>
-      <img src="./static/images/user-study.png" style="width: 90%"/>
+      <img src="./static/images/user-study.png" style="width: 80%"/>
       <p>
         User study with the question: <i>“which one of the three generated images aligns best with the reference image in style?”</i>
       </p>
